@@ -13,28 +13,33 @@ Swagger Codegen version: 2.3.1
 require 'date'
 
 module CloudmersiveBarcodeApiClient
-  # Matching product for the input barcode
-  class ProductMatch
-    # EAN code for the product
-    attr_accessor :ean
+  # Result of the barcode scan
+  class BarcodeScanResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
 
-    # Title of the product
-    attr_accessor :title
+    # The type of the barcode; possible values are AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
+    attr_accessor :barcode_type
+
+    # The barcode text
+    attr_accessor :raw_text
 
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'ean' => :'EAN',
-        :'title' => :'Title'
+        :'successful' => :'Successful',
+        :'barcode_type' => :'BarcodeType',
+        :'raw_text' => :'RawText'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'ean' => :'String',
-        :'title' => :'String'
+        :'successful' => :'BOOLEAN',
+        :'barcode_type' => :'String',
+        :'raw_text' => :'String'
       }
     end
 
@@ -46,12 +51,16 @@ module CloudmersiveBarcodeApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      if attributes.has_key?(:'EAN')
-        self.ean = attributes[:'EAN']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
       end
 
-      if attributes.has_key?(:'Title')
-        self.title = attributes[:'Title']
+      if attributes.has_key?(:'BarcodeType')
+        self.barcode_type = attributes[:'BarcodeType']
+      end
+
+      if attributes.has_key?(:'RawText')
+        self.raw_text = attributes[:'RawText']
       end
 
     end
@@ -74,8 +83,9 @@ module CloudmersiveBarcodeApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          ean == o.ean &&
-          title == o.title
+          successful == o.successful &&
+          barcode_type == o.barcode_type &&
+          raw_text == o.raw_text
     end
 
     # @see the `==` method
@@ -87,7 +97,7 @@ module CloudmersiveBarcodeApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [ean, title].hash
+      [successful, barcode_type, raw_text].hash
     end
 
     # Builds the object from hash

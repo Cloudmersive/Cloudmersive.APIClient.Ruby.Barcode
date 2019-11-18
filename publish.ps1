@@ -1,1 +1,1 @@
-& gem push .\client\cloudmersive-barcode-api-client-1.2.9.gem
+& gem push .\client\cloudmersive-barcode-api-client-1.3.0.gem
