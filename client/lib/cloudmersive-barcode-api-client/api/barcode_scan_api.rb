@@ -19,8 +19,8 @@ module CloudmersiveBarcodeApiClient
     def initialize(api_client = ApiClient.default)
       @api_client = api_client
     end
-    # Scan an image for a barcode
-    # Scan an image for a barcode and return the result.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
+    # Scan and recognize an image of a barcode
+    # Scan an image or photo of a barcode and return the result.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [BarcodeScanResult]
@@ -29,8 +29,8 @@ module CloudmersiveBarcodeApiClient
       data
     end
 
-    # Scan an image for a barcode
-    # Scan an image for a barcode and return the result.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
+    # Scan and recognize an image of a barcode
+    # Scan an image or photo of a barcode and return the result.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @return [Array<(BarcodeScanResult, Fixnum, Hash)>] BarcodeScanResult data, response status code and response headers

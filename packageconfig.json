@@ -2,7 +2,7 @@
 
   "gemName" : "cloudmersive-barcode-api-client",
   "gemLicense": "Apache 2.0",
-  "gemVersion": "2.0.1",
+  "gemVersion": "2.0.2",
   "gemHomepage": "https://www.cloudmersive.com/barcode-api",
   "gemSummary": "Generate and recognize 1D and 2D barcodes.",
   "gemDescription": "Generate and recognize 1D and 2D barcodes.",
