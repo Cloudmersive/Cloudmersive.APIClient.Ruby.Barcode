@@ -37,7 +37,7 @@ describe 'GenerateBarcodeApi' do
   # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
   # @param value Barcode value to generate from
   # @param [Hash] opts the optional parameters
-  # @return [File]
+  # @return [String]
   describe 'generate_barcode_ean13 test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -49,7 +49,7 @@ describe 'GenerateBarcodeApi' do
   # Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
   # @param value Barcode value to generate from
   # @param [Hash] opts the optional parameters
-  # @return [File]
+  # @return [String]
   describe 'generate_barcode_ean8 test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -61,7 +61,7 @@ describe 'GenerateBarcodeApi' do
   # Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
   # @param value QR code text to convert into the QR code barcode
   # @param [Hash] opts the optional parameters
-  # @return [File]
+  # @return [String]
   describe 'generate_barcode_qr_code test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -73,7 +73,7 @@ describe 'GenerateBarcodeApi' do
   # Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
   # @param value UPC-A barcode value to generate from
   # @param [Hash] opts the optional parameters
-  # @return [File]
+  # @return [String]
   describe 'generate_barcode_upca test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
@@ -85,7 +85,7 @@ describe 'GenerateBarcodeApi' do
   # Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
   # @param value UPC-E barcode value to generate from
   # @param [Hash] opts the optional parameters
-  # @return [File]
+  # @return [String]
   describe 'generate_barcode_upce test' do
     it 'should work' do
       # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers

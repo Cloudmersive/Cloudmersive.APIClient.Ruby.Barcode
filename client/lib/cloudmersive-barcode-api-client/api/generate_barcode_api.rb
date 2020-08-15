@@ -23,7 +23,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [File]
+    # @return [String]
     def generate_barcode_ean13(value, opts = {})
       data, _status_code, _headers = generate_barcode_ean13_with_http_info(value, opts)
       data
@@ -33,7 +33,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_ean13_with_http_info(value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_ean13 ...'
@@ -51,7 +51,7 @@ module CloudmersiveBarcodeApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -67,7 +67,7 @@ module CloudmersiveBarcodeApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'File')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_ean13\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -77,7 +77,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [File]
+    # @return [String]
     def generate_barcode_ean8(value, opts = {})
       data, _status_code, _headers = generate_barcode_ean8_with_http_info(value, opts)
       data
@@ -87,7 +87,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_ean8_with_http_info(value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_ean8 ...'
@@ -105,7 +105,7 @@ module CloudmersiveBarcodeApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -121,7 +121,7 @@ module CloudmersiveBarcodeApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'File')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_ean8\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -131,7 +131,7 @@ module CloudmersiveBarcodeApiClient
     # Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
     # @param value QR code text to convert into the QR code barcode
     # @param [Hash] opts the optional parameters
-    # @return [File]
+    # @return [String]
     def generate_barcode_qr_code(value, opts = {})
       data, _status_code, _headers = generate_barcode_qr_code_with_http_info(value, opts)
       data
@@ -141,7 +141,7 @@ module CloudmersiveBarcodeApiClient
     # Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
     # @param value QR code text to convert into the QR code barcode
     # @param [Hash] opts the optional parameters
-    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_qr_code_with_http_info(value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_qr_code ...'
@@ -159,7 +159,7 @@ module CloudmersiveBarcodeApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -175,7 +175,7 @@ module CloudmersiveBarcodeApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'File')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_qr_code\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -185,7 +185,7 @@ module CloudmersiveBarcodeApiClient
     # Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
     # @param value UPC-A barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [File]
+    # @return [String]
     def generate_barcode_upca(value, opts = {})
       data, _status_code, _headers = generate_barcode_upca_with_http_info(value, opts)
       data
@@ -195,7 +195,7 @@ module CloudmersiveBarcodeApiClient
     # Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
     # @param value UPC-A barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_upca_with_http_info(value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_upca ...'
@@ -213,7 +213,7 @@ module CloudmersiveBarcodeApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -229,7 +229,7 @@ module CloudmersiveBarcodeApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'File')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_upca\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
@@ -239,7 +239,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
     # @param value UPC-E barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [File]
+    # @return [String]
     def generate_barcode_upce(value, opts = {})
       data, _status_code, _headers = generate_barcode_upce_with_http_info(value, opts)
       data
@@ -249,7 +249,7 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
     # @param value UPC-E barcode value to generate from
     # @param [Hash] opts the optional parameters
-    # @return [Array<(File, Fixnum, Hash)>] File data, response status code and response headers
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_upce_with_http_info(value, opts = {})
       if @api_client.config.debugging
         @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_upce ...'
@@ -267,7 +267,7 @@ module CloudmersiveBarcodeApiClient
       # header parameters
       header_params = {}
       # HTTP header 'Accept' (if needed)
-      header_params['Accept'] = @api_client.select_header_accept(['image/png'])
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
 
@@ -283,7 +283,7 @@ module CloudmersiveBarcodeApiClient
         :form_params => form_params,
         :body => post_body,
         :auth_names => auth_names,
-        :return_type => 'File')
+        :return_type => 'String')
       if @api_client.config.debugging
         @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_upce\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end

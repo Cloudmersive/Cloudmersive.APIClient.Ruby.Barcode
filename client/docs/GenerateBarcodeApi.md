@@ -12,7 +12,7 @@ Method | HTTP request | Description
 
 
 # **generate_barcode_ean13**
-> File generate_barcode_ean13(value)
+> String generate_barcode_ean13(value)
 
 Generate a EAN-13 code barcode as PNG file
 
@@ -52,7 +52,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**String**
 
 ### Authorization
 
@@ -61,12 +61,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
 # **generate_barcode_ean8**
-> File generate_barcode_ean8(value)
+> String generate_barcode_ean8(value)
 
 Generate a EAN-8 code barcode as PNG file
 
@@ -106,7 +106,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**String**
 
 ### Authorization
 
@@ -115,12 +115,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
 # **generate_barcode_qr_code**
-> File generate_barcode_qr_code(value)
+> String generate_barcode_qr_code(value)
 
 Generate a QR code barcode as PNG file
 
@@ -160,7 +160,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**String**
 
 ### Authorization
 
@@ -169,12 +169,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
 # **generate_barcode_upca**
-> File generate_barcode_upca(value)
+> String generate_barcode_upca(value)
 
 Generate a UPC-A code barcode as PNG file
 
@@ -214,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**String**
 
 ### Authorization
 
@@ -223,12 +223,12 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
 # **generate_barcode_upce**
-> File generate_barcode_upce(value)
+> String generate_barcode_upce(value)
 
 Generate a UPC-E code barcode as PNG file
 
@@ -268,7 +268,7 @@ Name | Type | Description  | Notes
 
 ### Return type
 
-**File**
+**String**
 
 ### Authorization
 
@@ -277,7 +277,7 @@ Name | Type | Description  | Notes
 ### HTTP request headers
 
  - **Content-Type**: application/json, text/json, application/xml, text/xml, application/x-www-form-urlencoded
- - **Accept**: image/png
+ - **Accept**: application/octet-stream
 
 
 
