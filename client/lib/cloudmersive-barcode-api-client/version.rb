@@ -11,5 +11,5 @@ Swagger Codegen version: 2.4.14
 =end
 
 module CloudmersiveBarcodeApiClient
-  VERSION = '2.0.3'
+  VERSION = '2.1.0'
 end
