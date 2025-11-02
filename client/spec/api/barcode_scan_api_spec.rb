@@ -44,12 +44,25 @@ describe 'BarcodeScanApi' do
     end
   end
 
+  # unit tests for barcode_scan_image_advanced
+  # Advanced AI scan and recognition of an image of one or more barcodes of any type
+  # Scan an image or photo of a barcode and return the result with enhanced accuracy, particularlly for low quality inputs using Advanced AI.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB.  Uses large model AI.  Consumes 100 API calls per image page.  For Managed Instance and Private Cloud requires GPU infrastructure.  Supports PNG, PDF and JPEG input file formats.
+  # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+  # @param [Hash] opts the optional parameters
+  # @return [BarcodeAdvancedScanResult]
+  describe 'barcode_scan_image_advanced test' do
+    it 'should work' do
+      # assertion here. ref: https://www.relishapp.com/rspec/rspec-expectations/docs/built-in-matchers
+    end
+  end
+
   # unit tests for barcode_scan_image_advanced_qr
   # Advanced AI scan and recognition of an image of one or more QR barcodes
-  # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
+  # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
   # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
   # @param [Hash] opts the optional parameters
   # @option opts [String] :preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement.
+  # @option opts [String] :recognition_mode Optional, recognitionMode mode, default is &#39;Advanced&#39;.  Possible values are Advanced, and Advanced2 which provides the most advanced available barcode recognition.
   # @return [BarcodeScanQRAdvancedResult]
   describe 'barcode_scan_image_advanced_qr test' do
     it 'should work' do

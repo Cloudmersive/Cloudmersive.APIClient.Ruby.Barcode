@@ -17,6 +17,8 @@ require 'cloudmersive-barcode-api-client/version'
 require 'cloudmersive-barcode-api-client/configuration'
 
 # Models
+require 'cloudmersive-barcode-api-client/models/barcode_advanced_result_item'
+require 'cloudmersive-barcode-api-client/models/barcode_advanced_scan_result'
 require 'cloudmersive-barcode-api-client/models/barcode_lookup_response'
 require 'cloudmersive-barcode-api-client/models/barcode_qr_result_item'
 require 'cloudmersive-barcode-api-client/models/barcode_scan_qr_advanced_result'

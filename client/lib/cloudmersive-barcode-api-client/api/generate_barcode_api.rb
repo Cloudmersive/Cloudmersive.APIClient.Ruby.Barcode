@@ -23,6 +23,72 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
+    # @return [String]
+    def generate_barcode_code128(value, opts = {})
+      data, _status_code, _headers = generate_barcode_code128_with_http_info(value, opts)
+      data
+    end
+
+    # Generate a EAN-13 code barcode as PNG file
+    # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+    # @param value Barcode value to generate from
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
+    # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
+    def generate_barcode_code128_with_http_info(value, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: GenerateBarcodeApi.generate_barcode_code128 ...'
+      end
+      # verify the required parameter 'value' is set
+      if @api_client.config.client_side_validation && value.nil?
+        fail ArgumentError, "Missing the required parameter 'value' when calling GenerateBarcodeApi.generate_barcode_code128"
+      end
+      # resource path
+      local_var_path = '/barcode/generate/code-128'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      header_params[:'includeLabel'] = opts[:'include_label'] if !opts[:'include_label'].nil?
+
+      # form parameters
+      form_params = {}
+
+      # http body (model)
+      post_body = @api_client.object_to_http_body(value)
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'String')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: GenerateBarcodeApi#generate_barcode_code128\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
+    # Generate a EAN-13 code barcode as PNG file
+    # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
+    # @param value Barcode value to generate from
+    # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [String]
     def generate_barcode_ean13(value, opts = {})
       data, _status_code, _headers = generate_barcode_ean13_with_http_info(value, opts)
@@ -33,6 +99,9 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-13 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_ean13_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -54,6 +123,9 @@ module CloudmersiveBarcodeApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      header_params[:'includeLabel'] = opts[:'include_label'] if !opts[:'include_label'].nil?
 
       # form parameters
       form_params = {}
@@ -77,6 +149,9 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [String]
     def generate_barcode_ean8(value, opts = {})
       data, _status_code, _headers = generate_barcode_ean8_with_http_info(value, opts)
@@ -87,6 +162,9 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a EAN-8 barcode as a PNG file, a type of 1D barcode
     # @param value Barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_ean8_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -108,6 +186,9 @@ module CloudmersiveBarcodeApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      header_params[:'includeLabel'] = opts[:'include_label'] if !opts[:'include_label'].nil?
 
       # form parameters
       form_params = {}
@@ -131,6 +212,8 @@ module CloudmersiveBarcodeApiClient
     # Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
     # @param value QR code text to convert into the QR code barcode
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
     # @return [String]
     def generate_barcode_qr_code(value, opts = {})
       data, _status_code, _headers = generate_barcode_qr_code_with_http_info(value, opts)
@@ -141,6 +224,8 @@ module CloudmersiveBarcodeApiClient
     # Generate a QR code barcode as a PNG file, a type of 2D barcode which can encode free-form text information
     # @param value QR code text to convert into the QR code barcode
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_qr_code_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -162,6 +247,8 @@ module CloudmersiveBarcodeApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
 
       # form parameters
       form_params = {}
@@ -185,6 +272,9 @@ module CloudmersiveBarcodeApiClient
     # Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
     # @param value UPC-A barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [String]
     def generate_barcode_upca(value, opts = {})
       data, _status_code, _headers = generate_barcode_upca_with_http_info(value, opts)
@@ -195,6 +285,9 @@ module CloudmersiveBarcodeApiClient
     # Validate and generate a UPC-A barcode as a PNG file, a type of 1D barcode
     # @param value UPC-A barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_upca_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -216,6 +309,9 @@ module CloudmersiveBarcodeApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      header_params[:'includeLabel'] = opts[:'include_label'] if !opts[:'include_label'].nil?
 
       # form parameters
       form_params = {}
@@ -239,6 +335,9 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
     # @param value UPC-E barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [String]
     def generate_barcode_upce(value, opts = {})
       data, _status_code, _headers = generate_barcode_upce_with_http_info(value, opts)
@@ -249,6 +348,9 @@ module CloudmersiveBarcodeApiClient
     # Validates and generate a UPC-E barcode as a PNG file, a type of 1D barcode
     # @param value UPC-E barcode value to generate from
     # @param [Hash] opts the optional parameters
+    # @option opts [Integer] :width Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [Integer] :height Optional: width of the barcode in pixels.  Minimum value of 10.
+    # @option opts [BOOLEAN] :include_label Optional: show text label on the image of the barcode value, default is true.
     # @return [Array<(String, Fixnum, Hash)>] String data, response status code and response headers
     def generate_barcode_upce_with_http_info(value, opts = {})
       if @api_client.config.debugging
@@ -270,6 +372,9 @@ module CloudmersiveBarcodeApiClient
       header_params['Accept'] = @api_client.select_header_accept(['application/octet-stream'])
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['application/json', 'text/json', 'application/xml', 'text/xml', 'application/x-www-form-urlencoded'])
+      header_params[:'width'] = opts[:'width'] if !opts[:'width'].nil?
+      header_params[:'height'] = opts[:'height'] if !opts[:'height'].nil?
+      header_params[:'includeLabel'] = opts[:'include_label'] if !opts[:'include_label'].nil?
 
       # form parameters
       form_params = {}

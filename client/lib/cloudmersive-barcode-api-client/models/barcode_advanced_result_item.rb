@@ -13,22 +13,27 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveBarcodeApiClient
-  # QR barcode instance
-  class BarcodeQRResultItem
+  # Advanced barcode scan result instance
+  class BarcodeAdvancedResultItem
     # The barcode text
     attr_accessor :raw_text
+
+    # Type of the barcode; supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB.
+    attr_accessor :barcode_type
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'raw_text' => :'RawText'
+        :'raw_text' => :'RawText',
+        :'barcode_type' => :'BarcodeType'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'raw_text' => :'String'
+        :'raw_text' => :'String',
+        :'barcode_type' => :'String'
       }
     end
 
@@ -42,6 +47,10 @@ module CloudmersiveBarcodeApiClient
 
       if attributes.has_key?(:'RawText')
         self.raw_text = attributes[:'RawText']
+      end
+
+      if attributes.has_key?(:'BarcodeType')
+        self.barcode_type = attributes[:'BarcodeType']
       end
     end
 
@@ -63,7 +72,8 @@ module CloudmersiveBarcodeApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          raw_text == o.raw_text
+          raw_text == o.raw_text &&
+          barcode_type == o.barcode_type
     end
 
     # @see the `==` method
@@ -75,7 +85,7 @@ module CloudmersiveBarcodeApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [raw_text].hash
+      [raw_text, barcode_type].hash
     end
 
     # Builds the object from hash

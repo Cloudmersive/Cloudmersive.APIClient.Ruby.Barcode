@@ -74,11 +74,67 @@ module CloudmersiveBarcodeApiClient
       end
       return data, status_code, headers
     end
+    # Advanced AI scan and recognition of an image of one or more barcodes of any type
+    # Scan an image or photo of a barcode and return the result with enhanced accuracy, particularlly for low quality inputs using Advanced AI.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB.  Uses large model AI.  Consumes 100 API calls per image page.  For Managed Instance and Private Cloud requires GPU infrastructure.  Supports PNG, PDF and JPEG input file formats.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [BarcodeAdvancedScanResult]
+    def barcode_scan_image_advanced(image_file, opts = {})
+      data, _status_code, _headers = barcode_scan_image_advanced_with_http_info(image_file, opts)
+      data
+    end
+
+    # Advanced AI scan and recognition of an image of one or more barcodes of any type
+    # Scan an image or photo of a barcode and return the result with enhanced accuracy, particularlly for low quality inputs using Advanced AI.  Supported barcode types include AZTEC, CODABAR, CODE_39, CODE_93, CODE_128, DATA_MATRIX, EAN_8, EAN_13, ITF, MAXICODE, PDF_417, QR_CODE, RSS_14, RSS_EXPANDED, UPC_A, UPC_E, All_1D, UPC_EAN_EXTENSION, MSI, PLESSEY, IMB.  Uses large model AI.  Consumes 100 API calls per image page.  For Managed Instance and Private Cloud requires GPU infrastructure.  Supports PNG, PDF and JPEG input file formats.
+    # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
+    # @param [Hash] opts the optional parameters
+    # @return [Array<(BarcodeAdvancedScanResult, Fixnum, Hash)>] BarcodeAdvancedScanResult data, response status code and response headers
+    def barcode_scan_image_advanced_with_http_info(image_file, opts = {})
+      if @api_client.config.debugging
+        @api_client.config.logger.debug 'Calling API: BarcodeScanApi.barcode_scan_image_advanced ...'
+      end
+      # verify the required parameter 'image_file' is set
+      if @api_client.config.client_side_validation && image_file.nil?
+        fail ArgumentError, "Missing the required parameter 'image_file' when calling BarcodeScanApi.barcode_scan_image_advanced"
+      end
+      # resource path
+      local_var_path = '/barcode/scan/image/advanced'
+
+      # query parameters
+      query_params = {}
+
+      # header parameters
+      header_params = {}
+      # HTTP header 'Accept' (if needed)
+      header_params['Accept'] = @api_client.select_header_accept(['application/json', 'text/json', 'application/xml', 'text/xml'])
+      # HTTP header 'Content-Type'
+      header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
+
+      # form parameters
+      form_params = {}
+      form_params['imageFile'] = image_file
+
+      # http body (model)
+      post_body = nil
+      auth_names = ['Apikey']
+      data, status_code, headers = @api_client.call_api(:POST, local_var_path,
+        :header_params => header_params,
+        :query_params => query_params,
+        :form_params => form_params,
+        :body => post_body,
+        :auth_names => auth_names,
+        :return_type => 'BarcodeAdvancedScanResult')
+      if @api_client.config.debugging
+        @api_client.config.logger.debug "API called: BarcodeScanApi#barcode_scan_image_advanced\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+      end
+      return data, status_code, headers
+    end
     # Advanced AI scan and recognition of an image of one or more QR barcodes
-    # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
+    # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement.
+    # @option opts [String] :recognition_mode Optional, recognitionMode mode, default is &#39;Advanced&#39;.  Possible values are Advanced, and Advanced2 which provides the most advanced available barcode recognition.
     # @return [BarcodeScanQRAdvancedResult]
     def barcode_scan_image_advanced_qr(image_file, opts = {})
       data, _status_code, _headers = barcode_scan_image_advanced_qr_with_http_info(image_file, opts)
@@ -86,10 +142,11 @@ module CloudmersiveBarcodeApiClient
     end
 
     # Advanced AI scan and recognition of an image of one or more QR barcodes
-    # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG and JPEG input file formats.
+    # Scan an image or photo of a QR barcode and return the result.  Uses AI deep learning to read blurry or low resultion QR barcodes.  Supports PNG, PDF and JPEG input file formats.
     # @param image_file Image file to perform the operation on.  Common file formats such as PNG, JPEG are supported.
     # @param [Hash] opts the optional parameters
     # @option opts [String] :preprocessing Optional, preprocessing mode, default is &#39;Auto&#39;.  Possible values are None (no preprocessing of the image), and Auto (automatic image enhancement of the image - including automatic unrotation of the image - before OCR is applied; this is recommended).  Set this to &#39;None&#39; if you do not want to use automatic image unrotation and enhancement.
+    # @option opts [String] :recognition_mode Optional, recognitionMode mode, default is &#39;Advanced&#39;.  Possible values are Advanced, and Advanced2 which provides the most advanced available barcode recognition.
     # @return [Array<(BarcodeScanQRAdvancedResult, Fixnum, Hash)>] BarcodeScanQRAdvancedResult data, response status code and response headers
     def barcode_scan_image_advanced_qr_with_http_info(image_file, opts = {})
       if @api_client.config.debugging
@@ -112,6 +169,7 @@ module CloudmersiveBarcodeApiClient
       # HTTP header 'Content-Type'
       header_params['Content-Type'] = @api_client.select_header_content_type(['multipart/form-data'])
       header_params[:'preprocessing'] = opts[:'preprocessing'] if !opts[:'preprocessing'].nil?
+      header_params[:'recognitionMode'] = opts[:'recognition_mode'] if !opts[:'recognition_mode'].nil?
 
       # form parameters
       form_params = {}

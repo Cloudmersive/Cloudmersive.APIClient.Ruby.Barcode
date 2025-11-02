@@ -13,22 +13,37 @@ Swagger Codegen version: 2.4.14
 require 'date'
 
 module CloudmersiveBarcodeApiClient
-  # QR barcode instance
-  class BarcodeQRResultItem
-    # The barcode text
-    attr_accessor :raw_text
+  # Result of the advanced barcode scan
+  class BarcodeAdvancedScanResult
+    # True if the operation was successful, false otherwise
+    attr_accessor :successful
+
+    # Results of performing the barcode scan operation
+    attr_accessor :result_barcodes
+
+    # Number of barcodes read
+    attr_accessor :barcode_count
+
+    # Error message if any
+    attr_accessor :error_message
 
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        :'raw_text' => :'RawText'
+        :'successful' => :'Successful',
+        :'result_barcodes' => :'ResultBarcodes',
+        :'barcode_count' => :'BarcodeCount',
+        :'error_message' => :'ErrorMessage'
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'raw_text' => :'String'
+        :'successful' => :'BOOLEAN',
+        :'result_barcodes' => :'Array<BarcodeAdvancedResultItem>',
+        :'barcode_count' => :'Integer',
+        :'error_message' => :'String'
       }
     end
 
@@ -40,8 +55,22 @@ module CloudmersiveBarcodeApiClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}) { |(k, v), h| h[k.to_sym] = v }
 
-      if attributes.has_key?(:'RawText')
-        self.raw_text = attributes[:'RawText']
+      if attributes.has_key?(:'Successful')
+        self.successful = attributes[:'Successful']
+      end
+
+      if attributes.has_key?(:'ResultBarcodes')
+        if (value = attributes[:'ResultBarcodes']).is_a?(Array)
+          self.result_barcodes = value
+        end
+      end
+
+      if attributes.has_key?(:'BarcodeCount')
+        self.barcode_count = attributes[:'BarcodeCount']
+      end
+
+      if attributes.has_key?(:'ErrorMessage')
+        self.error_message = attributes[:'ErrorMessage']
       end
     end
 
@@ -63,7 +92,10 @@ module CloudmersiveBarcodeApiClient
     def ==(o)
       return true if self.equal?(o)
       self.class == o.class &&
-          raw_text == o.raw_text
+          successful == o.successful &&
+          result_barcodes == o.result_barcodes &&
+          barcode_count == o.barcode_count &&
+          error_message == o.error_message
     end
 
     # @see the `==` method
@@ -75,7 +107,7 @@ module CloudmersiveBarcodeApiClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [raw_text].hash
+      [successful, result_barcodes, barcode_count, error_message].hash
     end
 
     # Builds the object from hash

@@ -3,7 +3,7 @@ Remove-Item *.gem
 Remove-Item ./client/*.gem
 
 
-Invoke-WebRequest -Uri 'https://api.cloudmersive.com/swagger/api/barcode' -OutFile '.\barcode-api-swagger.json'
+Invoke-WebRequest -Uri 'https://api.cloudmersive.com/barcode/docs/v1/swagger' -OutFile '.\barcode-api-swagger.json'
 (Get-Content .\barcode-api-swagger.json).replace('localhost', "api.cloudmersive.com") | Set-Content .\barcode-api-swagger.json
 (Get-Content .\barcode-api-swagger.json -Raw) -replace '"http"','"https"' | Set-Content .\barcode-api-swagger.json -Encoding UTF8
 
